@@ -1,4 +1,4 @@
-import { LoanDetailPage } from "@/src/components/sgip-pages";
+import { LoanDetailPage } from "@/src/components/loans/LoanDetailPage";
 
 export default function LoanDetail() {
   return <LoanDetailPage />;

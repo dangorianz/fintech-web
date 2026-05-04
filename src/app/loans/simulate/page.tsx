@@ -1,4 +1,4 @@
-import { LoanSimulatePage } from "@/src/components/sgip-pages";
+import { LoanSimulatePage } from "@/src/components/loans/LoanSimulatePage";
 
 export default function SimulateLoan() {
   return <LoanSimulatePage />;

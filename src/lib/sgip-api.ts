@@ -558,9 +558,12 @@ export async function getTransactions(filters?: {
   if (filters?.status) params.set("status", filters.status);
 
   const query = params.toString() ? `?${params.toString()}` : "";
-  const result = await requestApi<BackendTransaction[]>(`/transactions${query}`, {
-    method: "GET",
-  });
+  const result = await requestApi<BackendTransaction[]>(
+    `/transactions${query}`,
+    {
+      method: "GET",
+    },
+  );
 
   if (result.data) {
     return { data: result.data.map(toTransaction) };

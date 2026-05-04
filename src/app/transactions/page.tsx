@@ -1,5 +1,5 @@
-import { TransactionsPage } from "@/src/components/sgip-pages";
+import { TransactionPage } from "@/src/components/transactions/TransactionPage";
 
 export default function Transactions() {
-  return <TransactionsPage />;
+  return <TransactionPage />;
 }
