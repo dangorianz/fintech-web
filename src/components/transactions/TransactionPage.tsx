@@ -1,7 +1,8 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
-import { getTransactions, TransactionResult } from "@/src/lib/sgip-api";
+import { getTransactions } from "@/src/services/transactions";
+import { TransactionResult } from "@/src/types/transaction";
 import { Notice } from "@/src/types/notice";
 import { EmptyState } from "@/src/components/shared/EmptyState";
 import { SelectField } from "@/src/components/shared/fields";

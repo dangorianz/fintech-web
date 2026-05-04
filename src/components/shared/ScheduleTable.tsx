@@ -1,4 +1,4 @@
-import { PaymentScheduleItem } from "@/src/lib/sgip-api";
+import { PaymentScheduleItem } from "@/src/types/loan";
 import { EmptyState } from "./EmptyState";
 import { PaymentStatusBadge } from "./badges";
 import { currency } from "./formatters";
@@ -15,14 +15,14 @@ export function ScheduleTable({
   return (
     <div className="mt-6 overflow-x-auto">
       <h3 className="mb-3 text-base font-semibold text-[#172026]">{title}</h3>
-      <table className="w-full min-w-[760px] text-left text-sm">
+      <table className="w-full min-w-190 text-left text-sm">
         <thead className="border-b border-[#d9dee5] text-xs uppercase text-[#62707f]">
           <tr>
             <th className="py-3">#</th>
-            <th>Vencimiento</th>
+            <th>Fecha de Pago</th>
             <th>Capital</th>
             <th>Interes</th>
-            <th>Cuota</th>
+            <th>Cuota Total</th>
             <th>Saldo</th>
             <th>Estado</th>
           </tr>

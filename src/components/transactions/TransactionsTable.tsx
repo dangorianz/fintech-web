@@ -1,4 +1,4 @@
-import { TransactionResult } from "@/src/lib/sgip-api";
+import { TransactionResult } from "@/src/types/transaction";
 import { currency } from "@/src/components/shared/formatters";
 
 export function TransactionsTable({

@@ -1,4 +1,4 @@
-import { LoanApplication } from "@/src/lib/sgip-api";
+import { LoanApplication } from "@/src/types/loan";
 
 export function StatusBadge({ status }: { status: LoanApplication["status"] }) {
   const label = {

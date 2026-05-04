@@ -4,11 +4,13 @@ import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   createLoanApplication,
+  simulateLoan,
+} from "@/src/services/loanService";
+import {
   InstallmentType,
   LoanSimulation,
   LoanSimulationRequest,
-  simulateLoan,
-} from "@/src/lib/sgip-api";
+} from "@/src/types/loan";
 import { Notice } from "@/src/types/notice";
 import { EmptyState } from "@/src/components/shared/EmptyState";
 import { NumberField, TextField } from "@/src/components/shared/fields";
@@ -28,9 +30,8 @@ export function LoanSimulatePage() {
     installmentType: "fixed",
   });
   const [customer, setCustomer] = useState({
-    customerName: "Maria Alvarez",
+    customerName: "Daniel Gorianz",
     customerDocument: "user-1",
-    purpose: "Capital operativo",
     monthlyIncome: 5000,
   });
   const [simulation, setSimulation] = useState<LoanSimulation>();
@@ -163,13 +164,6 @@ export function LoanSimulatePage() {
                     value={customer.customerDocument}
                     onChange={(customerDocument) =>
                       setCustomer({ ...customer, customerDocument })
-                    }
-                  />
-                  <TextField
-                    label="Destino"
-                    value={customer.purpose}
-                    onChange={(purpose) =>
-                      setCustomer({ ...customer, purpose })
                     }
                   />
                   <NumberField

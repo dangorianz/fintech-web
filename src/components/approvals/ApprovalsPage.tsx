@@ -3,9 +3,9 @@
 import { FormEvent, useState } from "react";
 import {
   getLoanApplications,
-  LoanApplication,
   updateApplicationStatus,
-} from "@/src/lib/sgip-api";
+} from "@/src/services/loanService";
+import { LoanApplication } from "@/src/types/loan";
 import { Notice } from "@/src/types/notice";
 import { EmptyState } from "@/src/components/shared/EmptyState";
 import { TextField } from "@/src/components/shared/fields";

@@ -1,7 +1,8 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { getLoanApplications, LoanApplication } from "@/src/lib/sgip-api";
+import { getLoanApplications } from "@/src/services/loanService";
+import { LoanApplication } from "@/src/types/loan";
 import { Notice } from "@/src/types/notice";
 import { EmptyState } from "@/src/components/shared/EmptyState";
 import { TextField } from "@/src/components/shared/fields";

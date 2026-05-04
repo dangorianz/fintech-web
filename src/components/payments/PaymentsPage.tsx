@@ -4,10 +4,12 @@ import { FormEvent, useState } from "react";
 import {
   getLoanApplications,
   getLoanSchedule,
+  payNextInstallment,
+} from "@/src/services/loanService";
+import {
   LoanApplication,
   PaymentScheduleItem,
-  payNextInstallment,
-} from "@/src/lib/sgip-api";
+} from "@/src/types/loan";
 import { Notice } from "@/src/types/notice";
 import { EmptyState } from "@/src/components/shared/EmptyState";
 import { TextField } from "@/src/components/shared/fields";

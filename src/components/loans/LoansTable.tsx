@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LoanApplication } from "@/src/lib/sgip-api";
+import { LoanApplication } from "@/src/types/loan";
 import { StatusBadge } from "@/src/components/shared/badges";
 import { currency } from "@/src/components/shared/formatters";
 

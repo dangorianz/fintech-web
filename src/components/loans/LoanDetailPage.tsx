@@ -5,9 +5,11 @@ import { useParams } from "next/navigation";
 import {
   getLoanById,
   getLoanSchedule,
+} from "@/src/services/loanService";
+import {
   LoanApplication,
   PaymentScheduleItem,
-} from "@/src/lib/sgip-api";
+} from "@/src/types/loan";
 import { Notice } from "@/src/types/notice";
 import { EmptyState } from "@/src/components/shared/EmptyState";
 import { Metric } from "@/src/components/shared/Metric";

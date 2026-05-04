@@ -21,10 +21,6 @@ export async function POST(request: NextRequest) {
   });
 }
 
-function toBackendLoanType(installmentType: string) {
-  return installmentType === "declining" ? "Declining" : "Fixed";
-}
-
 function toBackendLoanTypeValue(installmentType: string) {
   // Backend enum: Fixed = 1, Decreasing = 2
   return installmentType === "declining" ? 2 : 1;
