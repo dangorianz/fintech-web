@@ -140,13 +140,14 @@ export async function getLoanSchedule(
 
 export async function payNextInstallment(
   loanId: string,
+  idempotencyKey: string,
 ): Promise<ApiResult<PayNextInstallmentResult>> {
   const result = await requestApi<BackendPayNextInstallmentResponse>(
     `/loans/${encodeURIComponent(loanId)}/payments`,
     {
       method: "POST",
       body: JSON.stringify({
-        idempotencyKey: `PAY-${loanId}-${Date.now()}`,
+        idempotencyKey,
       }),
     },
   );
@@ -183,16 +184,6 @@ export async function updateApplicationStatus(
   }
 
   return { error: result.error };
-}
-
-function money(value: number) {
-  return Number.isFinite(value) ? value : 0;
-}
-
-function addMonths(date: Date, months: number) {
-  const next = new Date(date);
-  next.setMonth(next.getMonth() + months);
-  return next.toISOString().slice(0, 10);
 }
 
 function fromBackendLoanType(
