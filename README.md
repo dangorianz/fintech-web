@@ -85,6 +85,21 @@ Vitest esta configurado para pruebas frontend.
 
 NO SE IMPLEMENTO LOS UNIT TEST POR FALTA DE TIEMPO
 
+## Tutorial de uso
+
+El `User ID` es el identificador que conecta todos los flujos del frontend. El mismo valor que se usa al generar una solicitud de prestamo debe reutilizarse para consultar prestamos, revisar aprobaciones y pagar cuotas.
+
+Flujo recomendado:
+
+1. Ir a la pantalla de simulacion y completar monto, plazo, tasa y tipo de prestamo.
+2. En la seccion de datos del cliente, ingresar el `User ID` en el campo correspondiente.
+3. Solicitar el prestamo.
+4. Usar ese mismo `User ID` en la pantalla de prestamos para listar las solicitudes del cliente.
+5. Usar ese mismo `User ID` en la pantalla de aprobaciones para aprobar o rechazar prestamos pendientes.
+6. Usar ese mismo `User ID` en la pantalla de pagos para cargar los prestamos aprobados o activos y pagar la cuota actual.
+
+Ejemplo: si la solicitud se creo con `user-1`, entonces `user-1` debe usarse tambien en prestamos, aprobaciones y pagos.
+
 ## Arquitectura
 
 Estructura principal:
