@@ -46,23 +46,6 @@ Frontend del Sistema de Gestion de Inversiones y Prestamos. Permite simular pres
 - npm
 - Backend local o backend desplegado disponible
 
-### Backend
-
-Este proyecto no contiene el backend. Para levantarlo localmente:
-
-```bash
-cd ../fintech-api
-dotnet restore
-dotnet ef database update
-dotnet run
-```
-
-Swagger local:
-
-```text
-http://localhost:5249/swagger
-```
-
 ### Frontend
 
 ```bash
@@ -78,12 +61,6 @@ http://localhost:3000
 ```
 
 ## Variables de entorno
-
-### Backend (.env o appsettings.json)
-
-No aplica directamente dentro del frontend. El backend configura su propia variable `DATABASE_URL`.
-
-### Frontend (.env.local)
 
 Crear el archivo `fintech-web/.env.local`:
 
@@ -106,7 +83,7 @@ npm run test
 
 Vitest esta configurado para pruebas frontend.
 
-No se implementaron integration tests en el frontend por falta de tiempo.
+NO SE IMPLEMENTO LOS UNIT TEST POR FALTA DE TIEMPO
 
 ## Arquitectura
 
@@ -126,10 +103,9 @@ fintech-web/
 
 Patrones implementados:
 
-- Service Layer frontend: centraliza llamadas HTTP y transformacion de datos.
-- Adapter Pattern: convierte respuestas del backend a los tipos usados por la UI.
-- API Proxy: las rutas de Next.js evitan exponer directamente la URL final del backend en los componentes.
-- Componentizacion: campos, tablas, metricas y banners se reutilizan en varias pantallas.
+- Service Layer frontend: centraliza llamadas HTTP y transformacion de datos. Implementado en `src/services/loanService.ts` y `src/services/transactions.ts`.
+- Adapter Pattern: convierte respuestas del backend a los tipos usados por la UI. Implementado en las funciones `toSimulation`, `toApplicationFromBackendLoan`, `toPaymentScheduleItem` y `fromBackendLoanStatus` dentro de `src/services/loanService.ts`, y en `toTransaction` dentro de `src/services/transactions.ts`.
+- API Proxy: las rutas de Next.js evitan exponer directamente la URL final del backend en los componentes. Implementado en `src/lib/fintech-api-proxy.ts` y usado por rutas como `src/app/api/loans/route.ts`, `src/app/api/simulateLoan/route.ts`, `src/app/api/transactions/route.ts` y `src/app/api/loans/[id]/payments/route.ts`.
 
 ## Decisiones de diseno
 
@@ -141,8 +117,8 @@ Patrones implementados:
 
 Trade-offs realizados:
 
-- No se implementaron pruebas de integracion por falta de tiempo.
-- No se implementaron pruebas E2E.
+- No se implementaron unit test, pruebas de inegracion por falta de tiempo.
+- No se implementaron pruebas E2E por falta de tiempo.
 - No se agrego manejo avanzado de sesiones o roles.
 - El proxy del frontend depende de `FINTECH_API_BASE_URL`; si no esta configurado, las llamadas fallan.
 
@@ -158,7 +134,7 @@ Trade-offs realizados:
 Mejoras futuras:
 
 - Agregar autenticacion y manejo de sesiones.
-- Implementar integration tests del proxy y servicios.
+- Implementar integration tests del proxy y servicios y unit test con vitest.
 - Agregar pruebas E2E con Playwright.
 - Mejorar validaciones visuales del formulario.
 - Agregar estados de carga y errores mas detallados.
